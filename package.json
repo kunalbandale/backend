@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc -p tsconfig.json",
     "dev": "nodemon --exec ts-node src/server.ts",
-    "start": "node dist/server.js",
+    "start": "node server.js",
     "seed:departments": "ts-node src/scripts/seed-departments.ts",
     "seed:users": "ts-node src/scripts/seed-users.ts",
     "create:test-admin": "ts-node src/scripts/create-test-admin.ts"
