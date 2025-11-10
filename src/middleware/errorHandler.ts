@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from 'express';
-import { ZodError } from 'zod';
+import { ZodError, ZodIssue } from 'zod';
 import { MongoError } from 'mongodb';
 import mongoose from 'mongoose';
 
@@ -86,7 +86,7 @@ export const errorHandler = (
 
   // Zod validation error
   if (err instanceof ZodError) {
-    const errors = err.errors.map(e => ({
+    const errors = err.issues.map((e: ZodIssue) => ({
       field: e.path.join('.'),
       message: e.message
     }));
